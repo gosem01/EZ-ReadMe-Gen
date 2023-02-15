@@ -1,5 +1,11 @@
 // TODO: Include packages needed for this application
-import inquirer from "inquirer";
+// import inquirer from "inquirer";
+// import fs from "fs";
+// or should it be?
+const inquirer = require('inquirer');
+// const fs = require('fs');
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const questions = ["What is your project title?", 
@@ -27,10 +33,68 @@ const questions = ["What is your project title?",
 //THEN I am taken to the corresponding section of the README
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.log(err) : console.log('Successfully created README.md!')
+    );
+};
+
+inquirer.prompt([
+    {
+        type: 'input',
+        name: 'title',
+        message: questions[0],
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: questions[1],
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: questions[2],
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: questions[3],
+    },
+    {
+        type: 'input',
+        name: 'contribute',
+        message: questions[4],
+    },
+    {
+        type: 'input',
+        name: 'testing',
+        message: questions[5],
+    },
+    {
+        type: 'input',
+        name: 'licensing',
+        message: questions[6],
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: questions[7],
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: questions[8],
+    },
+]).then((answers) => {
+    const readMeContent = generateMarkdown(answers);
+
+    writeToFile('README.md', readMeContent);
+});
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+
+};
 
 // Function call to initialize app
 init();

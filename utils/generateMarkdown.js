@@ -1,9 +1,29 @@
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge(license) {
 
-  # t
+}
+
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+function renderLicenseLink(license) {
+
+}
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license) {
+
+}
+
+// TODO: Create a function to generate markdown for README
+function generateMarkdown(data) {
+  return `
+  # ${data.title}
   
   ## Description
 
-  t
+  ${data.description}
   
   ## Table of Contents
   
@@ -18,17 +38,17 @@
   
   ## Installation
 
-  t
+  ${data.installation}
   
   What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
   
   ## Usage
   
-  t
+  ${data.usage}
   
   ## License
 
-  t
+  ${data.licensing}
   
   The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
   
@@ -48,13 +68,13 @@
   
   ## Contributing
 
-  t
+  ${data.contribute}
   
   If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
   
   ## Tests
 
-  t
+  ${data.testing}
   
   Go the extra mile and write tests for your application. Then provide examples on how to run them here.
 
@@ -62,5 +82,9 @@
 
   For any questions reach out to the below user addresses!
 
-  The github user profile can be found [HERE](https://github.com/gosem01)
-  t
+  The github user profile can be found [HERE](https://github.com/${data.github})
+  ${data.email}
+`;
+}
+
+module.exports = generateMarkdown;
