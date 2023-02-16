@@ -1,9 +1,9 @@
 
-  # EZ-README-Gen
+  # EZ-README-Generator
   
   ## Description
 
-  A javascript application that generates a classy readme based on user input
+  THis is a javascript application that generates README content based on user prompts
 
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/license/apache2-0-php/)
   
@@ -29,12 +29,12 @@ This application is covered under the Apache commons public software license
   
   ## Usage
   
-  After installation, execute the index file and answer the question prompts
+  go to the project directory, in terminal execute the install command, then execute the app with node index, then answer the questions!
 
   
   ## Contributing
 
-  Feel free to fork and submit pull requests. Improvements welcome!
+  feel free to fork or create pull requests, updates are welcome
     
   ## Tests
 
