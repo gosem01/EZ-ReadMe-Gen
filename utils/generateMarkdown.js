@@ -2,88 +2,112 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
 
+  switch (license) {
+    case "none":
+      return "";
+    case "mit":
+      return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]";
+    case "ibm":
+      return "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)]";
+    case "eclipse":
+      return "[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)]";
+    case "apache":
+      return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]";
+  }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-
+  switch (license) {
+    case "none":
+      return "";
+    case "mit":
+      return "(https://opensource.org/license/mit-0/)";
+    case "ibm":
+      return "(https://opensource.org/license/ibmpl-php/)";
+    case "eclipse":
+      return "(https://opensource.org/license/eclipse-1-0-txt/)";
+    case "apache":
+      return "(https://opensource.org/license/apache2-0-php/)";
+  }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
 
+  switch (license) {
+    case "none":
+      return "";
+    case "mit":
+      return "## License\nThis application is covered under the MIT public software license";
+    case "ibm":
+      return "## License\nThis application is covered under the IBM public software license";
+    case "eclipse":
+      return "## License\nThis application is covered under the Eclipse public software license";
+    case "apache":
+      return "## License\nThis application is covered under the Apache commons public software license";
+  }
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  const licenseSection = renderLicenseSection(data.licensing);
+  const licenseBadge = renderLicenseBadge(data.licensing) + renderLicenseLink(data.licensing);
+
   return `
   # ${data.title}
   
   ## Description
 
   ${data.description}
+
+  ${licenseBadge}
   
   ## Table of Contents
   
   Links to the document sections for quicker reading.
   
+  - [License](#license)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [License](#license)
   - [Contributing](#contributing)
   - [Tests](#tests)
   - [Questions](#questions)
+
+${licenseSection}
   
   ## Installation
 
+  \`\`\`
   ${data.installation}
+  \`\`\`
   
   What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
   
   ## Usage
   
-  ${data.usage}
-  
-  ## License
-
-  ${data.licensing}
-  
-  The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-  
-  ---
-  
-  🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-  
-  ## Badges
-  
-  ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-  
-  Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-  
-  ## Features
-  
-  If your project has a lot of features, list them here.
+  ${data.usage + "\n"}
   
   ## Contributing
 
   ${data.contribute}
-  
-  If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-  
+    
   ## Tests
 
+  \`\`\`
   ${data.testing}
-  
-  Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+  \`\`\`
 
   ## Questions
 
-  For any questions reach out to the below user addresses!
+  For any questions feel free to reach out!
 
-  The github user profile can be found [HERE](https://github.com/${data.github})
-  ${data.email}
+  My github user profile can be found [HERE](https://github.com/${data.github})
+
+  [Click here to contact me via email](mailto:${data.email})
+  
 `;
 }
 
