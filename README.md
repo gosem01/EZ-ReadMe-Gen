@@ -27,8 +27,6 @@ This application is covered under the Apache commons public software license
   npm i
   ```
   
-  What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-  
   ## Usage
   
   After installation, execute the index file and answer the question prompts
